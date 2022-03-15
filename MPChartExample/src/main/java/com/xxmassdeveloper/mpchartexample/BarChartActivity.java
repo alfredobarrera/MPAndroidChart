@@ -17,6 +17,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.RoundedBarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.Legend.LegendForm;
 import com.github.mikephil.charting.components.XAxis;
@@ -50,6 +51,8 @@ public class BarChartActivity extends DemoBase implements OnSeekBarChangeListene
     private SeekBar seekBarX, seekBarY;
     private TextView tvX, tvY;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +71,19 @@ public class BarChartActivity extends DemoBase implements OnSeekBarChangeListene
         seekBarY.setOnSeekBarChangeListener(this);
         seekBarX.setOnSeekBarChangeListener(this);
 
-        chart = findViewById(R.id.chart1);
-        chart.setOnChartValueSelectedListener(this);
+        chart = (BarChart) findViewById( R.id.chart1 );
+        RoundedBarChart roundedBarChartRenderer= new RoundedBarChart(chart , chart.getAnimator(), chart.getViewPortHandler());
+        roundedBarChartRenderer.setmRadius(40f);
+        chart.setRenderer(roundedBarChartRenderer);
+        //chart = findViewById(R.id.chart1);
+        //chart.setOnChartValueSelectedListener(this);
 
         chart.setDrawBarShadow(false);
         chart.setDrawValueAboveBar(true);
+
+
+
+
 
         chart.getDescription().setEnabled(false);
 

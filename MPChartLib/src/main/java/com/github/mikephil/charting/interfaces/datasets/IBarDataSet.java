@@ -1,6 +1,7 @@
 package com.github.mikephil.charting.interfaces.datasets;
 
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.model.GradientColor;
 import com.github.mikephil.charting.utils.Fill;
 
 import java.util.List;
@@ -68,4 +69,5 @@ public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry
      * @return
      */
     String[] getStackLabels();
+
 }
